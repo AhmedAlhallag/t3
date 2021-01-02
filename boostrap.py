@@ -1,6 +1,9 @@
 from searching import Searching
+from sorting import Sorting
 import time
 sObj = Searching()
+sortObj = Sorting()
+
 
 d = {
     1: "CHECK SUBTRING MATCHING",
@@ -8,9 +11,11 @@ d = {
 
 }
 
+
 def print_d(d):
     for k, v in d.items():
         print(f"[{k}]: {v}")
+
 
 rep = None
 while rep != "exit":
@@ -25,7 +30,11 @@ while rep != "exit":
         sObj.set_string_sub(string, sub)
         print(sObj.subString())
     elif rep == 2:
-        pass
+        nums = input("Enter nums sep by white space: ").split(" ")
+        nums = list(map(int, nums))
+        sortObj.set_list(nums)
+        sortObj.bubble_sort()
+        print(sortObj.get_list())
 
     else:
         print("UNKOWN COMAND.")
